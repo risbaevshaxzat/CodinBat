@@ -8,17 +8,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Category {
+@Entity(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String name;
+    @Column(unique = true, nullable = false)
+    private String email;
 
-    private String description;
-
-    @ManyToOne
-    private Language language;
+    private String password;
 }

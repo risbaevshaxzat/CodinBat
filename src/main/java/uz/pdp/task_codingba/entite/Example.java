@@ -3,9 +3,11 @@ package uz.pdp.task_codingba.entite;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Example {
 
@@ -13,16 +15,8 @@ public class Example {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
-    private String name;
+    private String text;
 
-    @Column(nullable = true)
-    private String description;
-
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Category example_id;
-
-    @Column(nullable = true)
-    private boolean anser;
+    @OneToOne
+    private Task task;
 }

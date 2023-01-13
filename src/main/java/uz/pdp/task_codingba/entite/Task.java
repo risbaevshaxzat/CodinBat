@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Category {
+public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,8 +17,19 @@ public class Category {
 
     private String name;
 
-    private String description;
+    private String text;
+
+    private String solution;
+
+    private String hint;
+
+    private String method;
+
+    @ManyToOne
+    private User user;
 
     @ManyToOne
     private Language language;
+
+    private boolean hasStar;
 }
